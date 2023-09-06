@@ -1,0 +1,47 @@
+---
+import Layout from '../layouts/Layout.astro';
+import agents from '../assets/agents.json';
+import maps from '../assets/maps.json';
+import  ScrollContainer from 'react-indiana-drag-scroll'
+import 'react-indiana-drag-scroll/dist/style.css';
+---
+
+<Layout title="Ejemplo rapido">
+	<section class='bg-slate-900 agents py-8'>
+		<h2 class='px-2 text-white uppercase font-bold' >// Agentes</h2>
+		<ScrollContainer client:load className='scroll-container' mouseScroll={{ignoreElements:'anchor'}}  >
+			<div class="flex gap-3 w-max p-3 px-2" >
+				{agents.map((agent) =>(
+					<a href={`/agent/${agent.uuid}`} style='max-width:75vw' class="w-64 flex flex-col items-center bg-gradient-to-tr from-slate-950 to-slate-700 p-2 rounded-2xl shadow-lg relative border border-slate-600" >
+						<img src={agent.role.displayIcon} class='absolute opacity-10 top-12' />
+						<img transition:name={`agent-${agent.uuid}`} src={agent.fullPortraitV2} alt={agent.displayName}/>
+						<h3 class="uppercase text-xl text-valorant font-bold pt-1">{agent.displayName}</h3>
+					</a>
+				))}
+			</div>
+		</ScrollContainer>
+	</section>
+	<section class='py-8'>
+		<h2 class='px-2 text-white uppercase font-bold'>// MAPAS</h2>
+		<div class="grid grid-cols-2 p-2 gap-2">
+			{maps.map((item, i)=>(
+				<a href={`/map/${item.uuid}`} class={`relative h-44 flex items-center justify-center overflow-hidden rounded group`}>
+					<span transition:name={`mapCoordinates-${item.uuid}`} class="absolute top-1 left-1 z-20 text-xs text-white/50" >{item.coordinates}</span>
+					<img transition:name={`mapImage-${item.uuid}`} class="transition-all duration-500 absolute w-full h-full object-cover brightness-50 z-0 group-hover:brightness-100" src={item.splash} alt={item.displayName} />
+					<img class="transition-all duration-200 absolute w-full h-full object-contain drop-shadow-lg z-10 brightness-75 opacity-100 group-hover:opacity-0 " src={item.displayIcon} alt={item.displayName}/>
+					<h3 transition:name={`mapName-${item.displayName}`} class="z-40 text-4xl font-bold uppercase text-white drop-shadow-lg">{item.displayName}</h3>
+				</a>
+			))}
+		</div>
+	</section>
+</Layout>
+<style>
+	.agents{
+		background-image: url('/assets/team.jpg');
+		background-size: cover;
+		background-position: center;
+	}
+	h2{
+		font-size: 1.5rem;
+	}
+</style>

@@ -1,0 +1,134 @@
+--- 
+import { ViewTransitions } from 'astro:transitions';
+import agents from '../assets/agents.json';
+import Navbar from '../components/UI/Navbar.astro';
+import BSAside from '../components/BSAside.astro';
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en" class="bg-slate-950">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description">
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;900&display=swap" rel="stylesheet">
+		{agents.map((agent)=>{
+			return <link rel="preload" href={agent.fullPortraitV2} />
+		})}
+		<ViewTransitions/>
+		<title>{title}</title>
+	</head>
+	<body id="Body">
+		<div id="MobileContainer">
+			<div class="hidden bg-white h-24 md:flex flex-col items-center justify-evenly px-4">
+				<div class="w-full flex items-start justify-between">
+					<p id="clock" class="font-bold flex-1" />
+					<div class="h-8 w-28 rounded-full bg-black flex-1"></div>
+					<div class="flex items-center gap-2 flex-1 justify-end">
+						<svg
+						xmlns="http://www.w3.org/2000/svg"
+						height="1.3rem"
+						preserveAspectRatio="xMinYMin"
+						viewBox="-5 -5 24 24"
+					>
+						<path d="M1 10a1 1 0 011 1v2a1 1 0 01-2 0v-2a1 1 0 011-1zm4-4a1 1 0 011 1v6a1 1 0 01-2 0V7a1 1 0 011-1zm4-4a1 1 0 011 1v10a1 1 0 01-2 0V3a1 1 0 011-1zm4-2a1 1 0 011 1v12a1 1 0 01-2 0V1a1 1 0 011-1z"></path>
+					</svg>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							height="1.1rem"
+							viewBox="0 -2 14 14"
+							stroke-width="10"
+						>
+							<g fill="none" stroke="none" >
+								<g fill="#000" transform="translate(-303 -3684)">
+									<g transform="translate(56 160)">
+										<path d="M252.6 3532.586L254 3534l1.4-1.414a1.965 1.965 0 00-2.8 0m-2.8-2.828l1.4 1.414a3.936 3.936 0 015.6 0l1.4-1.414a5.896 5.896 0 00-8.4 0m11.2-2.83l-1.4 1.415a7.873 7.873 0 00-11.2 0l-1.4-1.414a9.83 9.83 0 0114 0"></path>
+									</g>
+								</g>
+							</g>
+						</svg>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							height="1.5rem"
+							viewBox="0 0 24 24"
+						>
+							<path d="M20 15.67V14h2v-4h-2V8.33A1.34 1.34 0 0018.67 7H3.34A1.34 1.34 0 002 8.33v7.33A1.34 1.34 0 003.33 17h15.34A1.34 1.34 0 0020 15.67z"></path>
+							<path d="M20 15.67V14h2v-4h-2V8.33A1.34 1.34 0 0018.67 7H3.34A1.34 1.34 0 002 8.33v7.33A1.34 1.34 0 003.33 17h15.34A1.34 1.34 0 0020 15.67z"></path>
+							<path fill="none" d="M24 0v24H0V0z"></path>
+						</svg>
+					</div>
+				</div>
+				<div class="bg-neutral-200 w-full h-8 rounded-full"></div>
+			</div>
+			<Navbar/>
+			<main>
+				<slot />
+			</main>
+		</div>
+		<BSAside/>
+	</body>
+	<script is:inline >
+		var date = new Date();
+		var current_time = date.getHours()+":"+date.getMinutes();
+		document.getElementById("clock").innerHTML = current_time;
+	</script>
+</html>
+<style is:global lang="scss" >
+	@font-face {
+		font-family: ValorantFont;
+		src: url('/fonts/ValorantFont.ttf') format('truetype');
+		font-weight: normal;
+		font-style: normal;
+		font-display: swap;
+	}
+	
+	.valorantTypography{
+		font-family: ValorantFont,'Roboto', sans-serif;
+	}
+
+	*{
+		font-family: 'Roboto', sans-serif;
+	}
+
+	@media (min-width: 768px) {
+		#Body{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			overflow: hidden;
+			height: 100vh;
+			width: 100vw;
+		}
+
+		#MobileContainer{
+			overflow-y: scroll;
+			overflow-x: hidden;
+			height: 844px;
+			width: 390px;
+			box-sizing: content-box;
+			border: .6rem solid black;
+			border-radius: 2.5rem;
+			box-shadow: 0px 1px 120px 0px rgb(255 255 255 / 33%);
+			>div{
+				position: sticky;
+				top:0;
+				z-index: 100;
+			}
+		}
+
+		#MobileContainer::-webkit-scrollbar{
+				display: none;
+			}
+	}
+
+</style>

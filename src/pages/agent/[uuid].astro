@@ -1,0 +1,80 @@
+---
+import agents from '../../assets/agents.json';
+import Layout from '../../layouts/Layout.astro';
+import BackArrow from '../../components/Icons/BackArrow.astro';
+
+export function getStaticPaths() {
+  return agents.map((agent) => ({
+    params: {
+      uuid: agent.uuid,
+    },
+    props: {...agent},
+  }));
+}
+
+const {uuid} = Astro.params;
+
+const { displayName:name, description, fullPortraitV2:image, background, backgroundGradientColors, role, abilities } = Astro.props;
+
+const bgGradient = `background: linear-gradient(0deg, #${backgroundGradientColors[0]} 0%, #${backgroundGradientColors[1]} 50%, #${backgroundGradientColors[2]} 100%);`;
+
+const anim = {
+  old: {
+    name: 'fadeIn',
+    duration: '3s',
+    easing: 'linear',
+    fillMode: 'forwards',
+  },
+  new: {
+    name: 'fadeOut',
+    duration: '3s',
+    easing: 'linear',
+    fillMode: 'backwards',
+  }
+};
+
+const myFade = {
+  forwards: anim,
+  backwards: anim,
+};
+
+---
+
+<Layout title={name}>
+  <div style={bgGradient} class="relative">
+    <a transition:animate="slide" href="/" class="flex gap-2 absolute top-2 left-2 z-30 bg-white/50 rounded px-2 py-0.5">
+      <BackArrow size='1rem' color='black'/>
+      <span>Volver</span>
+    </a>
+    <img transition:name={`agent-${uuid}`} transition:animate={myFade} class="w-full z-20 relative" src={image} alt={name}>
+    <img class="transition-transform absolute h-full w-full object-cover top-0 z-10 opacity-25 blur-sm" src={background} alt={`bg-${name}`}>
+  </div>
+  <div class="px-2 py-5 bg-slate-900 flex flex-col items-start gap-2 sticky top-12">
+    <div class="text-white gap-2 items-center inline-flex">
+      <img class="h-4" src={role.displayIcon} alt={role.displayName}>
+      <span class="text-xs uppercase font-bold" >{role.displayName}</span>
+    </div>
+    <h2 class="uppercase text-valorant text-center font-bold text-5xl " >{name}</h2>
+  </div>
+  <section class="p-6 bg-white">
+    <article>
+      <h3 class="uppercase text-2xl font-bold" >// Biografia</h3>
+      <p set:text={description} />
+    </article>
+  </section>
+  <div class="bg-slate-900 text-white p-6">
+    <h3 class="uppercase text-2xl font-bold">// Habilidades</h3>
+    <section class="grid grid-cols-2 gap-4 mt-4">
+      {abilities.map((abilitie:any)=>{
+        if(abilitie.slot === 'Passive') return
+        return(
+          <article >
+            <img class="w-12" src={abilitie.displayIcon} alt={abilitie.displayName}/>
+            <h4 class="font-bold mb-4 mt-2" >{abilitie.displayName}</h4>
+            <p class="text-xs">{description}</p>
+          </article>
+        )}
+      )}
+    </section>
+  </div>
+</Layout>
