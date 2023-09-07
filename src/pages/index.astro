@@ -12,7 +12,7 @@ import 'react-indiana-drag-scroll/dist/style.css';
 		<ScrollContainer client:load className='scroll-container' >
 			<div class="flex gap-3 w-max p-3 px-2" >
 				{agents.map((agent, i) =>{
-					if (i<5) return
+					if (i>5) return
 					
 					return(
 					<a href={`/agent/${agent.uuid}`} style='max-width:75vw' class="w-64 flex flex-col items-center bg-gradient-to-tr from-slate-950 to-slate-700 p-2 rounded-2xl shadow-lg relative border border-slate-600" >
