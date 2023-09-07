@@ -7,7 +7,7 @@
     "coordinates": "45°26'BF'N,12°20'Q'E",
     "displayIcon": "/assets/maps/map/Ascent.webp",
     "listViewIcon": "https://media.valorant-api.com/maps/7eaecc1b-4337-bbf6-6ab9-04b8f06b3319/listviewicon.png",
-    "splash": "/assets/maps/pic/aaaaa.webp"
+    "splash": "/assets/maps/pic/Ascent.webp"
   },
   {
     "uuid": "d960549e-485c-e861-8d71-aa9d1aed12a2",
@@ -17,7 +17,7 @@
     "coordinates": "35°41'CD'N,139°41'WX'E",
     "displayIcon": "/assets/maps/map/Ascent.webp",
     "listViewIcon": "https://media.valorant-api.com/maps/d960549e-485c-e861-8d71-aa9d1aed12a2/listviewicon.png",
-    "splash": "/assets/maps/pic/aaaaa.webp"
+    "splash": "/assets/maps/pic/Split.webp"
   },
   {
     "uuid": "b529448b-4d60-346e-e89e-00a4c527a405",
@@ -27,7 +27,7 @@
     "coordinates": "35°48'BI\"N 106°08'YQ\"W",
     "displayIcon": "/assets/maps/map/Fracture.webp",
     "listViewIcon": "https://media.valorant-api.com/maps/b529448b-4d60-346e-e89e-00a4c527a405/listviewicon.png",
-    "splash": "/assets/maps/pic/aaaaa.webp"
+    "splash": "/assets/maps/pic/Fracture.webp"
   },
   {
     "uuid": "2c9d57ec-4431-9c5e-2939-8f9ef6dd5cba",
@@ -37,7 +37,7 @@
     "coordinates": "34°2'A'N,6°51'Z'W",
     "displayIcon": "/assets/maps/map/Bind.webp",
     "listViewIcon": "https://media.valorant-api.com/maps/2c9d57ec-4431-9c5e-2939-8f9ef6dd5cba/listviewicon.png",
-    "splash": "/assets/maps/pic/aaaaa.webp"
+    "splash": "/assets/maps/pic/Bind.webp"
   },
   {
     "uuid": "2fb9a4fd-47b8-4e7d-a969-74b4046ebd53",
@@ -47,7 +47,7 @@
     "coordinates": "26°11'AG\"N 71°10'WY\"W",
     "displayIcon": "/assets/maps/map/Breeze.webp",
     "listViewIcon": "https://media.valorant-api.com/maps/2fb9a4fd-47b8-4e7d-a969-74b4046ebd53/listviewicon.png",
-    "splash": "/assets/maps/pic/aaaaa.webp"
+    "splash": "/assets/maps/pic/Breeze.webp"
   },
   {
     "uuid": "2fe4ed3a-450a-948b-6d6b-e89a78e680a9",
@@ -57,7 +57,7 @@
     "coordinates": "14°07'AD.4\"N8 74°53'XY\"E8",
     "displayIcon": "/assets/maps/map/Lotus.webp",
     "listViewIcon": "https://media.valorant-api.com/maps/2fe4ed3a-450a-948b-6d6b-e89a78e680a9/listviewicon.png",
-    "splash": "/assets/maps/pic/aaaaa.webp"
+    "splash": "/assets/maps/pic/Lotus.webp"
   },
   {
     "uuid": "92584fbe-486a-b1b2-9faa-39b0f486b498",
@@ -67,7 +67,7 @@
     "coordinates": "34° 2′ C″ N, 118° 12′ YT″ W",
     "displayIcon": "/assets/maps/map/Sunset.webp",
     "listViewIcon": "https://media.valorant-api.com/maps/92584fbe-486a-b1b2-9faa-39b0f486b498/listviewicon.png",
-    "splash": "/assets/maps/pic/aaaaa.webp"
+    "splash": "/assets/maps/pic/Sunset.webp"
   },
   {
     "uuid": "fd267378-4d1d-484f-ff52-77821ed10dc2",
@@ -77,7 +77,7 @@
     "coordinates": "38°42'ED\"N8 9°08'XS\"W8",
     "displayIcon": "/assets/maps/map/Pearl.webp",
     "listViewIcon": "https://media.valorant-api.com/maps/fd267378-4d1d-484f-ff52-77821ed10dc2/listviewicon.png",
-    "splash": "/assets/maps/pic/aaaaa.webp"
+    "splash": "/assets/maps/pic/Pearl.webp"
   },
   {
     "uuid": "e2ad5c54-4114-a870-9641-8ea21279579a",
@@ -87,7 +87,7 @@
     "coordinates": "76°44' A\"N 149°30' Z\"E",
     "displayIcon": "/assets/maps/map/Icebox.webp",
     "listViewIcon": "https://media.valorant-api.com/maps/e2ad5c54-4114-a870-9641-8ea21279579a/listviewicon.png",
-    "splash": "/assets/maps/pic/aaaaa.webp"
+    "splash": "/assets/maps/pic/Icebox.webp"
   },
   {
     "uuid": "2bee0dc9-4ffe-519b-1cbd-7fbe763a6047",
@@ -97,6 +97,6 @@
     "coordinates": "27°28'A'N,89°38'WZ'E",
     "displayIcon": "/assets/maps/map/Haven.webp",
     "listViewIcon": "https://media.valorant-api.com/maps/2bee0dc9-4ffe-519b-1cbd-7fbe763a6047/listviewicon.png",
-    "splash": "/assets/maps/pic/aaaaa.webp"
+    "splash": "/assets/maps/pic/Haven.webp"
   }
 ]

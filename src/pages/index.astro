@@ -11,7 +11,7 @@ import 'react-indiana-drag-scroll/dist/style.css';
 		<h2 class='px-2 text-white uppercase font-bold' >// Agentes</h2>
 		<ScrollContainer client:load className='scroll-container' >
 			<div class="flex gap-3 w-max p-3 px-2" >
-				{agents.map((agent, i) =>{
+				{agents.map((agent) =>{
 					return(
 					<a href={`/agent/${agent.uuid}`} style='max-width:75vw' class="w-64 flex flex-col items-center bg-gradient-to-tr from-slate-950 to-slate-700 p-2 rounded-2xl shadow-lg relative border border-slate-600" >
 						<img src={agent.role.displayIcon} class='absolute opacity-10 top-12' />
@@ -22,7 +22,7 @@ import 'react-indiana-drag-scroll/dist/style.css';
 			</div>
 		</ScrollContainer>
 	</section>
-	<!-- <section class='py-8'>
+	<section class='py-8'>
 		<h2 class='px-2 text-white uppercase font-bold'>// MAPAS</h2>
 		<div class="grid grid-cols-2 p-2 gap-2">
 			{maps.map((item, i)=>(
@@ -34,7 +34,7 @@ import 'react-indiana-drag-scroll/dist/style.css';
 				</a>
 			))}
 		</div>
-	</section> -->
+	</section>
 </Layout>
 <style>
 	.agents{
