@@ -18,35 +18,15 @@ const { displayName:name, description, fullPortraitV2:image, background, backgro
 
 const bgGradient = `background: linear-gradient(0deg, #${backgroundGradientColors[0]} 0%, #${backgroundGradientColors[1]} 50%, #${backgroundGradientColors[2]} 100%);`;
 
-const anim = {
-  old: {
-    name: 'fadeIn',
-    duration: '3s',
-    easing: 'linear',
-    fillMode: 'forwards',
-  },
-  new: {
-    name: 'fadeOut',
-    duration: '3s',
-    easing: 'linear',
-    fillMode: 'backwards',
-  }
-};
-
-const myFade = {
-  forwards: anim,
-  backwards: anim,
-};
-
 ---
 
-<Layout title={name}>
+<Layout title={`ValorantPedia | ${name}`} description={description} >
   <div style={bgGradient} class="relative">
     <a transition:animate="slide" href="/" class="flex gap-2 absolute top-2 left-2 z-30 bg-white/50 rounded px-2 py-0.5">
       <BackArrow size='1rem' color='black'/>
       <span>Volver</span>
     </a>
-    <img transition:name={`agent-${uuid}`} transition:animate={myFade} class="w-full z-20 relative" src={image} alt={name}>
+    <img transition:name={`agent-${uuid}`} class="w-full z-20 relative" src={image} alt={name}>
     <img class="transition-transform absolute h-full w-full object-cover top-0 z-10 opacity-25 blur-sm" src={background} alt={`bg-${name}`}>
   </div>
   <div class="px-2 py-5 bg-slate-900 flex flex-col items-start gap-2 sticky top-12">
